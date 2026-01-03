@@ -1,124 +1,221 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EEPAS S.A. DE C.V.</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f4f4f4;
-      color: #333;
-    }
-    header {
-      background: #2563eb;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    nav {
-      background: #1e40af;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .container {
-      padding: 30px;
-    }
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      margin-bottom: 20px;
-    }
-    footer {
-      background: #111827;
-      color: white;
-      text-align: center;
-      padding: 15px;
-    }
-    button {
-      background: #2563eb;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #1d4ed8;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EEPAS S.A. DE C.V. | Control de Plagas</title>
+
+    <style>
+        :root {
+            --primario: #0b5ed7;
+            --oscuro: #1c1c1c;
+            --gris: #f4f6f8;
+            --acento: #ffc107;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: var(--gris);
+        }
+
+        /* ANIMACIONES */
+        @keyframes aparecer {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes flotar {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0); }
+        }
+
+        nav {
+            background: white;
+            padding: 12px 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-img {
+            height: 75px;
+            animation: flotar 3s infinite;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0b5ed7, #063970);
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+            animation: aparecer 1s ease;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.3rem;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 12px;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .texto-oficial {
+            background: white;
+            padding: 30px;
+            border-left: 6px solid var(--primario);
+            margin-bottom: 40px;
+            font-size: 1.05rem;
+            animation: aparecer 1.2s ease;
+        }
+
+        .destacado {
+            background: linear-gradient(135deg, #ffffff, #eef3ff);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 50px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            animation: aparecer 1.3s ease;
+        }
+
+        .destacado h2 {
+            color: var(--primario);
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .grid-plagas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            transition: transform 0.4s, box-shadow 0.4s;
+            animation: aparecer 1.4s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 18px 35px rgba(0,0,0,0.25);
+        }
+
+        .card img {
+            width: 100%;
+            height: 190px;
+            object-fit: contain;
+            padding: 15px;
+            background: white;
+        }
+
+        .card h3 {
+            margin: 0;
+            padding: 15px;
+            background: var(--primario);
+            color: white;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+        }
+
+        footer {
+            background: var(--oscuro);
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 60px;
+            font-size: 0.95rem;
+        }
+
+        .btn-whatsapp {
+            position: fixed;
+            bottom: 22px;
+            right: 22px;
+            background: #25d366;
+            color: white;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            text-decoration: none;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+            animation: flotar 2.5s infinite;
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <img src="logo.jpeg" alt="EEPAS Control de Plagas" style="max-width:180px; width:100%; height:auto; display:block; margin:0 auto 15px;">
-    <h1>EEPAS S.A. DE C.V.</h1>
-    <p>Exterminadora de plagas – control profesional y seguro</p>
-  </header>
+<nav>
+    <img src="logo.png" alt="Logo EEPAS" class="logo-img">
+    <strong>EEPAS S.A. DE C.V.</strong>
+</nav>
 
-  <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#servicios">Servicios</a>
-    <a href="#contacto">Contacto</a>
-    <a href="#publicidad">Facebook & Google</a>
-  </nav>
+<header>
+    <h1>CONTROL Y EXTERMINIO DE PLAGAS</h1>
+    <p>Atención profesional 24/7 • Cobertura en todo El Salvador</p>
+</header>
 
-  <div class="container">
-    <div id="publicidad" class="card">
-      <h2>Encuéntranos en Facebook y Google</h2>
-      <p>Promocionamos nuestros servicios de <strong>control y exterminio de plagas</strong> a través de Facebook y Google para atenderte de forma rápida y profesional en todo El Salvador.</p>
-      <p>
-        <a href="#" style="display:inline-block; margin-right:10px; text-decoration:none;">
-          <button>Facebook</button>
-        </a>
-        <a href="#" style="display:inline-block; text-decoration:none;">
-          <button>Google</button>
-        </a>
-      </p>
-      <p><em>Próximamente enlaces oficiales.</em></p>
-    </div>
-    <div id="inicio" class="card">
-      <h2>Inicio</h2>
-      <p><strong>EEPAS S.A. DE C.V.</strong> brinda servicios profesionales en las ramas de <strong>CONTROL Y EXTERMINIO DE TODO TIPO DE PLAGAS</strong>. Nuestros servicios incluyen <strong>control preventivo</strong> y <strong>control para la eliminación</strong> de plagas que afectan la salud y el bienestar.</p>
-      <p>Atendemos roedores, cucarachas, moscas, zancudos, mosquitos, arañas, zompopos, hormigas, alacranes, chinches y todo tipo de insectos perjudiciales para la salud, utilizando métodos seguros y eficaces.</p>
+<div class="container">
+
+    <div class="texto-oficial">
+        Ofrecemos servicios profesionales en <strong>control y exterminio de todo tipo de plagas</strong>, incluyendo control preventivo y eliminación de roedores, cucarachas, moscas, zancudos, mosquitos, arañas, zompopos, hormigas, alacranes, chinches y todo tipo de insectos perjudiciales para la salud.
     </div>
 
-    <div id="servicios" class="card">
-      <h2>Servicios</h2>
-      <ul>
-        <li>Control preventivo de plagas</li>
-        <li>Eliminación de roedores</li>
-        <li>Control de cucarachas y hormigas</li>
-        <li>Control de moscas, zancudos y mosquitos</li>
-        <li>Control de arañas, alacranes y chinches</li>
-        <li>Fumigaciones residenciales, comerciales e industriales</li>
-      </ul>
+    <div class="destacado">
+        <h2>Calidad a Nivel Nacional</h2>
+        <p>
+            En <strong>EEPAS S.A. DE C.V.</strong> trabajamos únicamente con <strong>productos de la más alta calidad</strong>, fabricados en <strong>Alemania y Francia</strong>, cumpliendo estrictos estándares internacionales de seguridad, eficacia y protección ambiental.
+        </p>
     </div>
 
-    <div id="contacto" class="card">
-      <h2>Contacto</h2>
-      <p><strong>Cobertura:</strong> Atención a nivel nacional en todo El Salvador.</p>
-      <p><strong>Horario de atención:</strong> 24/7 (atención las 24 horas, todos los días).</p>
-      <p>Email: Eepas.ventas@gmail.com</p>
-      <button>Solicitar servicio</button>
-    </div>
-  </div>
+    <div class="grid-plagas">
+        <div class="card">
+            <img src="hormigas.jpg" alt="Hormigas">
+            <h3>Hormigas</h3>
+        </div>
 
-  <footer>
-    <p>© 2026 EEPAS S.A. DE C.V.</p>
-  </footer>
+        <div class="card">
+            <img src="cucarachas.png" alt="Cucarachas">
+            <h3>Cucarachas</h3>
+        </div>
+
+        <div class="card">
+            <img src="araña.jpg" alt="Arañas">
+            <h3>Arañas</h3>
+        </div>
+
+        <div class="card">
+            <img src="roedor.jfif" alt="Roedores">
+            <h3>Roedores</h3>
+        </div>
+    </div>
+</div>
+
+<a href="https://wa.me/50370335429" class="btn-whatsapp" target="_blank">💬</a>
+
+<footer>
+    © 2026 EEPAS S.A. DE C.V. | Control Profesional de Plagas
+</footer>
 
 </body>
 </html>
